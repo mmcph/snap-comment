@@ -1,6 +1,6 @@
 <?php
 
-class Comment implements \JsonSerializable {
+class Comment {
 
 	/**
 	 * id for this comment; this is the primary key
@@ -32,7 +32,7 @@ class Comment implements \JsonSerializable {
 	 * @throws \Exception if some other exception occurs
 	 * @Documentation https://php.net/manual/en/language.oop5.decon.php
 	 **/
-	public function __construct($commentSaltiness, string $commentText, string $commentUsername) {
+	public function __construct(float $commentSaltiness, string $commentText, string $commentUsername) {
 		try {
 			$this->setCommentSaltiness($commentSaltiness);
 			$this->setCommentText($commentText);
@@ -138,5 +138,8 @@ class Comment implements \JsonSerializable {
 
 }
 
-$instance = new Comment;
-echo $instance;
+$instance = new Comment('.99', 'lel dae 90s kids??', 'tEhPeNgUiNoFdOoM');
+echo var_dump($instance);
+
+$instanceTwo = new Comment('.01', 'be nice pls', 'WhitestKnight');
+echo var_dump($instanceTwo);
